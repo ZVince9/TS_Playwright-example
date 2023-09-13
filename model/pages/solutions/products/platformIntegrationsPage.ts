@@ -60,6 +60,7 @@ class PlatformIntegrationsPage {
     await this.checkHowManyResultsAppeared(page, 4);
     await customChecks.scrollOnElement(page, this.card);
     await customChecks.selectElement(page, this.card, 3);
+    await customChecks.waitForPostCall(page, "wa");
   }
 
   /**

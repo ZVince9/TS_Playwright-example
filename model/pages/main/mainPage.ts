@@ -88,7 +88,7 @@ class MainPage {
   /**
    * Navigates to the Solutions menu and selects Platform Integrations.
    */
-  async doubleClick() {
+  async doubleSingleClickToNavigate() {
     await this.page.click(this.solutions.main);
     await this.page.click(this.solutions.Products.platform_integrations);
   }

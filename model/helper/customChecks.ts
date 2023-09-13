@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { expect } from "@playwright/test";
 
 class CustomChecks {
@@ -77,6 +78,28 @@ class CustomChecks {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async expectTextToBeVisible(page: any, selector: string, text: string) {
     await expect(await page.textContent(selector)).toBe(text);
+  }
+
+  /**
+   * waitforPostCall - Waits for a post call to be made.
+   * @param {any} page - The Playwright page object.
+   * @param {string} postCall - The post call URL to wait for.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  async waitForPostCall(page: any, postCall: string) {
+    try {
+      // schedule call made after removing schedule
+      const [response] = await Promise.all([
+        page.waitForResponse(
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (response: any) =>
+            response.url().includes(postCall) && response.status() === 204,
+          { timeout: 3000 }
+        ),
+      ]);
+    } catch (error) {
+      throw new Error(`Post call was not made`);
+    }
   }
 }
 

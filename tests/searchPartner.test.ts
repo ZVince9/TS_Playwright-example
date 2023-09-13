@@ -31,7 +31,7 @@ test.afterEach(async ({}, testInfo) => {
 test(`Search for ${process.env.BIG_COMMERNCE} Partner`, async () => {
   const page = await mainPage.gotoMainPage();
   await mainPage.checkMainPageUrl(page.url(), /.*nuvei/);
-  await mainPage.doubleClick();
+  await mainPage.doubleSingleClickToNavigate();
   await platformIntegrationsPage.searchForPartner(page);
   await customChecks.expectTextToBeVisible(
     page,

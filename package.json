@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test-local-chrome": "npx playwright test tests/makeSpecificSteps.test.ts --project=chromium --config=config/playwright.config.ts --workers=6",
-    "test-local-all-browsers": "npx playwright test tests/makeSpecificSteps.test.ts --config=config/playwright.config.ts --workers=6",
+    "test-local-chrome": "npx playwright test tests/searchPartner.test.ts --project=chromium --config=config/playwright.config.ts --workers=6",
+    "test-local-all-browsers": "npx playwright test tests/searchPartner.test.ts --config=config/playwright.config.ts --workers=6",
     "test:reporter": "allure generate allure-results --clean -o allure-report && allure open allure-report",
     "run-eslint": "npx eslint . --ext .ts"
   },
