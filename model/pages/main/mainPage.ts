@@ -12,6 +12,8 @@ class MainPage {
   browser: Browser;
   page: Page;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  context: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   url: any;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   solutions: any;
@@ -40,7 +42,12 @@ class MainPage {
    */
   async gotoMainPage() {
     this.browser = await chromium.launch();
+    this.context = await this.browser.newContext();
     this.page = await this.browser.newPage();
+
+    //clear cookies if needed - double check even if new context and browser are created
+    await this.context.clearCookies();
+
     await this.page.goto(this.url, { timeout: 100000, waitUntil: "load" });
 
     // Wait for the page to fully load
