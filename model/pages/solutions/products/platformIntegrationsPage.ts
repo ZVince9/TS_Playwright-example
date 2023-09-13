@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { expect } from "@playwright/test";
 
 // Import the MainPage and CustomChecks classes
@@ -35,6 +36,7 @@ class PlatformIntegrationsPage {
    * Checks if platform elements are visible on the page.
    * @param {any} page - The Playwright page object.
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async checkIfPlatformElementsAreVisible(page: any) {
     await mainPage.checkMainPageUrl(page.url(), /.*partner-integrations/);
     await customChecks.checkElementToBeVisible(page, this.search, false);
@@ -45,6 +47,7 @@ class PlatformIntegrationsPage {
    * Searches for a partner on the page.
    * @param {any} page - The Playwright page object.
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async searchForPartner(page: any) {
     await customChecks.waitForFullLoad(page);
     await this.checkIfPlatformElementsAreVisible(page);

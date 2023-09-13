@@ -1,7 +1,4 @@
 node_modules/
-/test-results/
-/playwright-report/
-/playwright/.cache/
-
-output/
+allure-report/
+allure-results/
 ```

@@ -11,7 +11,9 @@ const customChecks = new CustomChecks();
 class MainPage {
   browser: Browser;
   page: Page;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   url: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   solutions: any;
   platform_integrations: string;
   cookie_accept: string;
@@ -71,6 +73,7 @@ class MainPage {
    * @param {any} url - The URL to match.
    * @param {RegExp} value - The regular expression to match against the URL.
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async checkMainPageUrl(url: any, value: RegExp) {
     expect(url).toMatch(value);
   }

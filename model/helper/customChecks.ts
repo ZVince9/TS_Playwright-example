@@ -7,6 +7,7 @@ class CustomChecks {
    * Waits for the page to fully load.
    * @param {any} page - The Playwright page object.
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async waitForFullLoad(page: any) {
     await page.waitForLoadState("networkidle");
     await page.waitForLoadState("domcontentloaded");
@@ -20,6 +21,7 @@ class CustomChecks {
    * @param {boolean} value - Whether the element should be visible (true) or not (false).
    * @throws {Error} Throws an error if the element is not visible.
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async checkElementToBeVisible(page: any, element: string, value: boolean) {
     try {
       if (element && value === true) {
@@ -43,7 +45,9 @@ class CustomChecks {
    * @param {any} page - The Playwright page object.
    * @param {string} selector - The selector of the element to scroll to.
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async scrollOnElement(page: any, selector: string) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     await page.$eval(selector, (element: any) => {
       element.scrollIntoView();
     });
@@ -55,6 +59,7 @@ class CustomChecks {
    * @param {string} selector - The selector of the element to select.
    * @param {number} number - (Optional) The index of the element to select.
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async selectElement(page: any, selector: string, number: number) {
     if (number) {
       await page.click(`(${selector})[${number}]`);
@@ -69,6 +74,7 @@ class CustomChecks {
    * @param {string} selector - The selector of the element containing the text.
    * @param {string} text - The text to expect.
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   async expectTextToBeVisible(page: any, selector: string, text: string) {
     await expect(await page.textContent(selector)).toBe(text);
   }
