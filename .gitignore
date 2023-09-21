@@ -1,4 +1,27 @@
 node_modules/
 allure-report/
 allure-results/
-```
+npm-debug.log
+yarn-error.log
+/dist/
+/coverage/
+*.log
+*.swp
+
+# TypeScript specific
+*.tsbuildinfo
+
+# IDE/Editor Files
+.vscode/
+.idea/
+*.editorconfig
+
+# Build and Compiled Files
+/build/
+
+# Environment Variables
+.env
+
+# Logs and Temporary Files
+/logs/
+/tmp/

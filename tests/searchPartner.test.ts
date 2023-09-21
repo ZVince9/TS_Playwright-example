@@ -12,12 +12,8 @@ const mainPage = new MainPage();
 const customChecks = new CustomChecks();
 const platformIntegrationsPage = new PlatformIntegrationsPage();
 
-test.describe.configure({ mode: "parallel" });
-
-// making actions before each test block if needed
 test.beforeEach(async () => {});
 
-// making actions after each tests run
 // eslint-disable-next-line no-empty-pattern
 test.afterEach(async ({}, testInfo) => {
   if (testInfo.status === testInfo.expectedStatus) {
