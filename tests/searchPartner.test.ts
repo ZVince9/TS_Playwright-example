@@ -23,7 +23,6 @@ test.afterEach(async ({}, testInfo) => {
   }
 });
 
-// test block
 test(`Search for ${process.env.BIG_COMMERNCE} Partner`, async () => {
   const page = await mainPage.gotoMainPage();
   await mainPage.checkMainPageUrl(page.url(), /.*nuvei/);
