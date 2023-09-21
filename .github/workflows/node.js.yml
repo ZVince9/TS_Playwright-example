@@ -45,7 +45,6 @@ jobs:
 
       - name: Install Node.js dependencies
         run: npm install --force
-        working-directory: ./github/workspace  # Update the working directory
 
       - name: Run linters
         uses: wearerequired/lint-action@v2
