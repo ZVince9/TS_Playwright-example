@@ -57,10 +57,15 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Run Tests
-        id: tests
-        run: npm install && npm run test-local-chrome
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - run: npm install
+      - run: npx playwright install
+      - run: npm run test-local-chrome
 
       - name: Upload Artifacts
         if: always()
