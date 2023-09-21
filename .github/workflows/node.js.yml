@@ -35,23 +35,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v3
+    - name: Check out Git repository
+      uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: 18
+    - name: Set up Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 18
 
-      # ESLint and Prettier must be in `package.json`
-      - name: Install Node.js dependencies
-        run: npm install
-
-      - name: Run linters
-        uses: wearerequired/lint-action@v2
-        with:
-          eslint: true
-          prettier: true
+    - name: Install Node.js dependencies and run linters
+      run: |
+        cd ${{ github.workspace }}  # Change working directory to the repository root
+        npm install
+        npx eslint .
+        npx prettier --check .
+      shell: bash
 
   tests:
     needs: build
@@ -64,7 +62,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
       - run: npm install
-      - run: npx playwright install
+      - run: npx playwright installs
       - run: npm run test-local-chrome
 
       - name: Upload Artifacts
