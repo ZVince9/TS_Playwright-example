@@ -44,7 +44,7 @@ jobs:
           node-version: 18
 
       - name: Install Node.js dependencies
-        run: npm install
+        run: npm ci
         working-directory: ./github/workspace  # Update the working directory
 
       - name: Run linters
