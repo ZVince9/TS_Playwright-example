@@ -67,7 +67,7 @@ class MainPage {
       await customChecks.checkElementToBeVisible(
         this.page,
         this.cookie_accept,
-        false
+        false,
       );
       await this.page.click(this.cookie_accept);
     } catch {

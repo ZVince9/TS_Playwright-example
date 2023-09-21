@@ -55,7 +55,7 @@ class PlatformIntegrationsPage {
     await this.selectTypeIndustryLocation(
       page,
       data.Search.type,
-      data.Search.industry
+      data.Search.industry,
     );
     await this.checkHowManyResultsAppeared(page, 4);
     await customChecks.scrollOnElement(page, this.card);
@@ -84,7 +84,7 @@ class PlatformIntegrationsPage {
     await page.click(this.location_button);
     for (let i = 0; i < data.Search.location.length; i++) {
       await page.click(
-        `//span[contains(text(), "${data.Search.location[i]}")]`
+        `//span[contains(text(), "${data.Search.location[i]}")]`,
       );
     }
 
@@ -106,7 +106,7 @@ class PlatformIntegrationsPage {
           const style = getComputedStyle(element);
           return style.display !== "none" && style.visibility !== "hidden";
         }).length;
-      }
+      },
     );
     await expect(visibleElementsCount).toBe(count);
   }

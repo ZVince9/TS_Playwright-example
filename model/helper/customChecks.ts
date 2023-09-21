@@ -94,7 +94,7 @@ class CustomChecks {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           (response: any) =>
             response.url().includes(postCall) && response.status() === 204,
-          { timeout: 3000 }
+          { timeout: 3000 },
         ),
       ]);
     } catch (error) {

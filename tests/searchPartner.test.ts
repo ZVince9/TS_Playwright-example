@@ -31,6 +31,6 @@ test(`Search for ${process.env.BIG_COMMERNCE} Partner`, async () => {
   await customChecks.expectTextToBeVisible(
     page,
     data.Search.title_text_variable,
-    data.Search.title_text
+    data.Search.title_text,
   );
 });
