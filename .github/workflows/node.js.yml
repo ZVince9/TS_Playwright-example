@@ -60,7 +60,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run Tests
         id: tests
-        run: npm ci && npm run test-local-chrome
+        run: npm install && npm run test-local-chrome
 
       - name: Upload Artifacts
         if: always()
